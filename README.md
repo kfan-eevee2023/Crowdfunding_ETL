@@ -1,5 +1,5 @@
 Project 2  Crowdfunding ETL
-Completed By: Kefan Liao & 
+Completed By: Kefan Liao
 
 1. ETL_Mini_Project_Starter_Code _KLiao.ipynb  -- Python code
 2. campaign.csv                                -- CSV output file
