@@ -11,13 +11,19 @@ CREATE TABLE IF NOT EXISTS subcategory (
 );
 
 
+--3 contacts
+CREATE TABLE IF NOT EXISTS contacts (
+   contact_id     INTEGER PRIMARY KEY,
+   first_name     VARCHAR(100),
+   last_name      VARCHAR(100),
+   email          VARCHAR(200)
+);
 
-Extract the "contact_id", "name", and "email" columns by using regular expressions
 
---3 campaign
+--4 campaign
 CREATE TABLE IF NOT EXISTS campaign (
   cf_id             INTEGER,
-  contact_id        INTEGER,
+  contact_id        INTEGER REFERENCES contacts (contact_id),
   company_name      VARCHAR(200),
   description       VARCHAR(500),   
   goal              FLOAT,
@@ -28,17 +34,6 @@ CREATE TABLE IF NOT EXISTS campaign (
   currency          VARCHAR(20),
   launch_date       DATE,
   end_date          DATE,
-  category_id       INTEGER REFERENCES category (category_id),
-  subcategory_id    INTEGER REFERENCES subcategory (subcategory_id)
+  category_id       VARCHAR(20) REFERENCES category (category_id),
+  subcategory_id    VARCHAR(20) REFERENCES subcategory (subcategory_id)
 );
-
-
---4 contacts
-CREATE TABLE IF NOT EXISTS contacts (
-   contact_id     INTEGER PRIMARY KEY,
-   first_name     VARCHAR(100),
-   last_name      VARCHAR(100),
-   email          VARCHAR(200)
-);
-
-
